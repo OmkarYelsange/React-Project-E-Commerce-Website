@@ -7,8 +7,9 @@ import Skeleton from "./Skeleton";
 const ProductCard = () => {
   // const [TopProducts, setTopProducts] = useState(ProductList);
   const [TopProducts, setTopProducts] = useState([]);
-  const [btnName, setBtnName] = useState("Top Rated Products");
+  const [btnName, setBtnName] = useState("Top Products");
   const [searchText, setSearchText] = useState("");
+  const [searchedProducts, setsearchedProducts] = useState([]);
 
   useEffect(() => {
     fetchData();
@@ -18,6 +19,7 @@ const ProductCard = () => {
     const data = await fetch("https://fakestoreapi.com/products");
     const jsonData = await data.json();
     setTopProducts(jsonData);
+    setsearchedProducts(jsonData);
   };
 
   return TopProducts.length === 0 ? (
@@ -27,11 +29,36 @@ const ProductCard = () => {
       <div style={{ display: "flex", justifyContent: "space-between" }}>
         <div
           style={{
-            margin: "10px",
+            marginTop: "10px",
             display: "flex",
-            gap: "2px",
           }}
         >
+          <button
+            style={{
+              margin: "10px",
+              background: "purple",
+              color: "white",
+              padding: "10px",
+              borderRadius: "20px",
+              border: "1px solid black",
+            }}
+            onClick={() => {
+              const filteredProduct = TopProducts.filter(
+                (ProductList) => ProductList.rating.rate >= 4
+              );
+
+              setTopProducts(filteredProduct);
+              btnName === "Top Products"
+                ? setBtnName("All Products")
+                : setBtnName("Top Products");
+
+              if (btnName === "All Products") {
+                fetchData();
+              }
+            }}
+          >
+            {btnName}
+          </button>
           <input
             type="text"
             onChange={(e) => {
@@ -40,55 +67,38 @@ const ProductCard = () => {
             placeholder="Search Product"
             value={searchText}
             style={{
+              margin: "10px",
               padding: "10px",
-              borderRadius: "20px",
+              borderRadius: "10px",
               justifyContent: "center",
               alignItems: "center",
             }}
           />
+
           <button
-            style={{ padding: "10px", borderRadius: "20px" }}
+            style={{
+              margin: "10px",
+              padding: "10px",
+              borderRadius: "20px",
+              border: "1px solid black",
+            }}
             onClick={() => {
               console.log(searchText);
               const filteredProduct = TopProducts.filter((ProductList) => {
-                return ProductList.title.includes(searchText.toLowerCase());
+                return ProductList.title
+                  .toLowerCase()
+                  .includes(searchText.toLowerCase());
               });
-              setTopProducts(filteredProduct);
+              setsearchedProducts(filteredProduct);
               setSearchText("");
             }}
           >
             Search
           </button>
         </div>
-        <button
-          style={{
-            margin: "10px",
-            background: "purple",
-            color: "white",
-            padding: "10px",
-            borderRadius: "20px",
-            border: "1px solid black",
-          }}
-          onClick={() => {
-            const filteredProduct = TopProducts.filter(
-              (ProductList) => ProductList.rating.rate >= 4
-            );
-
-            setTopProducts(filteredProduct);
-            btnName === "Top Rated Products"
-              ? setBtnName("All Products")
-              : setBtnName("Top Rated Products");
-
-            if (btnName === "All Products") {
-              fetchData();
-            }
-          }}
-        >
-          {btnName}
-        </button>
       </div>
       <div className="Product_Card">
-        {TopProducts.map((ProductList) => {
+        {searchedProducts.map((ProductList) => {
           return <Product key={ProductList.id} ProductList={ProductList} />;
         })}
       </div>

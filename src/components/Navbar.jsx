@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "../App.css";
 
 const Navbar = () => {
-  const [btnName, setBtnName] = useState("LIGHT");
+  const [btnName, setBtnName] = useState("☀️");
 
   return (
     <div
@@ -29,11 +29,11 @@ const Navbar = () => {
             background: "purple",
             color: "white",
             padding: "10px",
-            borderRadius: "10px",
-            border: "1px solid black",
+            borderRadius: "50%",
+            border: "1px solid white",
           }}
           onClick={() => {
-            btnName === "LIGHT" ? setBtnName("DARK") : setBtnName("LIGHT");
+            btnName === "☀️" ? setBtnName("🌙") : setBtnName("☀️");
           }}
         >
           {btnName}
