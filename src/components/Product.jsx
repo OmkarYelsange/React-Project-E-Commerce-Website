@@ -5,9 +5,14 @@ const Product = ({ ProductList }) => {
 
   return (
     <div className="Product">
-      <img className="Product_img" src={image} />
-      <h3>{title}</h3>
-      <p>{rating.rate} ⭐</p>
+      <img className="Product_img" src={image} alt={title} />
+      <h1>{title}</h1>
+      <p className="rating">
+        {rating.rate}{" "}
+        <span role="img" aria-label="star">
+          ⭐
+        </span>
+      </p>
       <p>$ {price}</p>
     </div>
   );

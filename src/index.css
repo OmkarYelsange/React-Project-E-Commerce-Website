@@ -20,23 +20,108 @@
   margin: 10px;
 }
 
+body {
+  background: linear-gradient(120deg, #f8fafc 0%, #e0e7ff 100%);
+  font-family: "Segoe UI", "Roboto", "Arial", sans-serif;
+  color: #22223b;
+}
+
 .Product_Card {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 10px;
+  gap: 32px;
+  justify-content: center;
+  margin: 32px 0 48px 0;
 }
 
 .Product {
-  border: 1px solid black;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px 0 rgba(34, 34, 59, 0.1),
+    0 1.5px 6px 0 rgba(34, 34, 59, 0.08);
   text-align: center;
-  width: 200px;
-  padding: 5px;
-  margin: 10px;
+  width: 260px;
+  padding: 24px 18px 18px 18px;
+  margin: 0;
+  transition: transform 0.18s cubic-bezier(0.4, 2, 0.6, 1), box-shadow 0.18s;
+  border: none;
+  position: relative;
+}
+.Product:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 8px 32px 0 rgba(34, 34, 59, 0.18),
+    0 2px 8px 0 rgba(34, 34, 59, 0.12);
 }
 
 .Product_img {
-  width: 100px;
-  margin-top: 20px;
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+  margin: 0 auto 18px auto;
+  display: block;
+  border-radius: 12px;
+  background: #f1f5f9;
+  box-shadow: 0 2px 8px 0 rgba(34, 34, 59, 0.06);
+}
+
+.Product h1 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #3a3a5a;
+  margin: 10px 0 6px 0;
+  min-height: 48px;
+}
+
+.Product p {
+  margin: 4px 0;
+  font-size: 1rem;
+}
+
+.Product p:last-child {
+  font-weight: bold;
+  color: #5e60ce;
+  font-size: 1.1rem;
+}
+
+.Product .rating {
+  color: #f59e42;
+  font-weight: 500;
+  font-size: 1.05rem;
+}
+
+button {
+  margin: 18px auto 0 auto;
+  display: block;
+  background: linear-gradient(90deg, #5e60ce 0%, #4361ee 100%);
+  color: #fff;
+  padding: 12px 32px;
+  border-radius: 24px;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  box-shadow: 0 2px 8px 0 rgba(67, 97, 238, 0.1);
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: background 0.18s, transform 0.18s;
+}
+button:hover {
+  background: linear-gradient(90deg, #4361ee 0%, #5e60ce 100%);
+  transform: translateY(-2px) scale(1.04);
+}
+
+@media (max-width: 700px) {
+  .Product_Card {
+    gap: 18px;
+  }
+  .Product {
+    width: 90vw;
+    max-width: 340px;
+    padding: 18px 8px 14px 8px;
+  }
+  .Product_img {
+    width: 100px;
+    height: 100px;
+  }
 }
 .skeleton-container {
   display: flex;
