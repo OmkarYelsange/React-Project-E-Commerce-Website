@@ -5,7 +5,19 @@ const Navbar = () => {
   const [btnName, setBtnName] = useState("LIGHT");
 
   return (
-    <div className="navbar">
+    <div
+      className="navbar"
+      style={{
+        display: "flex",
+        justifyContent: "space-between",
+        borderBottom: "1px solid black",
+        alignItems: "center",
+        textAlign: "center",
+        padding: "10px",
+        backgroundColor: "purple",
+        color: "white",
+      }}
+    >
       <h1>LOGO</h1>
       <ul>
         <li>MENS</li>
