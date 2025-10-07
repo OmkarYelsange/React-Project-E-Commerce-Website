@@ -1,7 +1,7 @@
 
 # React E-Commerce WebApp 🛍️
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/0f6e2b3a-badge-example/deploy-status)](https://react-e-commerce-webapp.netlify.app/)  
+[[Netlify Status](https://api.netlify.com/api/v1/badges/0f6e2b3a-badge-example/deploy-status)](https://react-e-commerce-webapp.netlify.app/)  
 [Live Demo](https://react-e-commerce-webapp.netlify.app/)
 
 A **modern, responsive e-commerce web application** built with **React + Vite**.  
@@ -76,12 +76,12 @@ react-e-commerce-website
 🧰 Available Scripts
 
 
-| Command             | Description                      |
-|---------------------|----------------------------------|
-| **npm run dev**     | Start local development server   |
-| **npm run build**   | Build the app for production     |
-| **npm run preview** | Preview production build locally |
-| **npm run lint**    | Run ESLint checks (if configured)|
+| Command         | Description                      |
+|-----------------|----------------------------------|
+| npm run dev     | Start local development server   |
+| npm run build   | Build the app for production     |
+| npm run preview | Preview production build locally |
+| npm run lint    | Run ESLint checks (if configured)|
 
 
 🔐 Environment Variables
