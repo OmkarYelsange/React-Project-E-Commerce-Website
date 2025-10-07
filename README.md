@@ -8,22 +8,6 @@ A **modern, responsive e-commerce web application** built with **React + Vite**.
 This project demonstrates key e-commerce features such as product browsing, cart management, authentication, and a smooth user experience.
 
 ---
-
-## 📚 Table of Contents
-
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Getting Started](#getting-started)
-- [Folder Structure](#folder-structure)
-- [Available Scripts](#available-scripts)
-- [Environment Variables](#environment-variables)
-- [Future Enhancements](#future-enhancements)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
-
----
-
 ## ✨ Features
 
 ✅ Browse products by category  
@@ -71,6 +55,7 @@ npm run preview
 ```
 🧩 Folder Structure
 ```bash
+react-e-commerce-website
 ├── public/
 │   └── index.html
 ├── src/
@@ -85,15 +70,19 @@ npm run preview
 ├── package.json
 ├── vite.config.js
 └── README.md
+
 ```
+
 🧰 Available Scripts
-Command	Description
-```
-npm run dev	Start local development server
-npm run build	Build the app for production
-npm run preview	Preview production build locally
-npm run lint	Run ESLint checks (if configured)
-```
+
+
+| Command             | Description                      |
+|---------------------|----------------------------------|
+| **npm run dev**     | Start local development server   |
+| **npm run build**   | Build the app for production     |
+| **npm run preview** | Preview production build locally |
+| **npm run lint**    | Run ESLint checks (if configured)|
+
 
 🔐 Environment Variables
 If you’re using environment variables (e.g. API endpoints or keys), create a .env file:
@@ -101,38 +90,31 @@ If you’re using environment variables (e.g. API endpoints or keys), create a .
 ```
 VITE_API_URL=https://api.example.com
 VITE_AUTH_KEY=your_secret_key
+
 ```
 ⚠️ Never commit .env files to GitHub!
 
-🚧 Future Enhancements
+## 🚧 Future Enhancements
+
 ✅ Order checkout & payment gateway
-
 ✅ Wishlist feature
-
 ✅ Product filters & sorting
-
 ✅ Reviews and ratings system
-
+✅ Dark Mode
 ✅ Admin dashboard for managing products
-
-✅ Dark mode
-
 ✅ Performance optimization & lazy loading
 
-🤝 Contributing
+## 🤝 Contributing
+
 Contributions are welcome!
-
 Fork the repo
-
 Create your branch feature/YourFeature
-
 Commit your changes
-
 Push and open a pull request
-
 Please follow proper code style and documentation.
 
-🧾 License
+## 🧾 License
+
 MIT License
 Copyright (c) 2025 Omkar Yelsange
 
