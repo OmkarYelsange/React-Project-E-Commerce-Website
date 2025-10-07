@@ -47,13 +47,18 @@ cd React-Project-E-Commerce-Website
 npm install
 npm run dev
 ```
+
 Production Build
+
 ```bash
-Copy code
+
 npm run build
 npm run preview
+
 ```
+
 🧩 Folder Structure
+
 ```bash
 react-e-commerce-website
 ├── public/
