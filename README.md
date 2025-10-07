@@ -1,8 +1,16 @@
 
-# React E-Commerce WebApp 🛍️
+<h1 align="center">🛍️ React E-Commerce WebApp</h1>
 
-[[Netlify Status](https://api.netlify.com/api/v1/badges/0f6e2b3a-badge-example/deploy-status)](https://react-e-commerce-webapp.netlify.app/)  
-[Live Demo](https://react-e-commerce-webapp.netlify.app/)
+<p align="center">
+  <a href="https://react-e-commerce-webapp.netlify.app/">
+    <img src="https://api.netlify.com/api/v1/badges/0f6e2b3a-badge-example/deploy-status" alt="Netlify Status">
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://react-e-commerce-webapp.netlify.app/"><b>🌐 Live Demo</b></a> •
+  <a href="https://github.com/OmkarYelsange/React-Project-E-Commerce-Website"><b>📂 Repository</b></a>
+</p>
 
 A **modern, responsive e-commerce web application** built with **React + Vite**.  
 This project demonstrates key e-commerce features such as product browsing, cart management, authentication, and a smooth user experience.
