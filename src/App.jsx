@@ -9,6 +9,7 @@ import Kids from "./pages/Kids";
 import Cart from "./pages/Cart";
 import Error from "./components/Error";
 import ProductDetails from "./components/ProductDetails";
+import About from "./pages/About";
 
 function App() {
   return (
@@ -40,6 +41,10 @@ export const appRouter = createBrowserRouter([
       {
         path: "/kids",
         element: <Kids />,
+      },
+      {
+        path: "/about",
+        element: <About />,
       },
       {
         path: "/cart",
