@@ -10,7 +10,8 @@ const Footer = () => {
         padding: "10px",
         backgroundColor: "purple",
         color: "white",
-        marginTop: "20px",
+        width: "100%",
+        marginTop: "40px",
       }}
     >
       <h3>Made with ❤️ by Omkar Yelsange</h3>

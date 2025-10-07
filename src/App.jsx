@@ -13,9 +13,17 @@ import About from "./pages/About";
 
 function App() {
   return (
-    <div>
+    <div
+      style={{
+        minHeight: "100vh",
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
       <Navbar />
-      <Outlet />
+      <div style={{ flex: 1 }}>
+        <Outlet />
+      </div>
       <Footer />
     </div>
   );

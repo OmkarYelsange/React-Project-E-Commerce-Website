@@ -13,48 +13,122 @@ const Navbar = () => {
       style={{
         display: "flex",
         justifyContent: "space-between",
-        borderBottom: "1px solid black",
         alignItems: "center",
-        textAlign: "center",
-        padding: "10px",
+        borderBottom: "1px solid #fff",
+        padding: "18px 40px",
         backgroundColor: "purple",
         color: "white",
+        minHeight: "64px",
+        fontFamily: "'Segoe UI', 'Roboto', 'Arial', sans-serif",
+        letterSpacing: "0.5px",
       }}
     >
-      <h1>
-        <Link to="/">LOGO</Link>
+      <h1
+        style={{
+          fontSize: "2rem",
+          fontWeight: 700,
+          margin: 0,
+          letterSpacing: "2px",
+        }}
+      >
+        <Link to="/" style={{ color: "white", textDecoration: "none" }}>
+          LOGO
+        </Link>
       </h1>
-      <ul>
-        <li>
-          <Link to="/mens">MENS</Link>
-        </li>
-        <li>
-          <Link to="/womens">WOMENS</Link>
-        </li>
-        <li>
-          <Link to="/kids">KIDS</Link>
-        </li>
-        <li>
-          <Link to="/about">ABOUT</Link>
-        </li>
-        <li>
-          <Link to="/cart">CART</Link>
-        </li>
-        <button
+      <nav
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "24px",
+          height: "100%",
+        }}
+      >
+        <ul
           style={{
-            background: "purple",
-            color: "white",
-            padding: "10px",
-            borderRadius: "50%",
-            border: "1px solid white",
-          }}
-          onClick={() => {
-            btnName === "☀️" ? setBtnName("🌙") : setBtnName("☀️");
+            display: "flex",
+            alignItems: "center",
+            gap: "28px",
+            listStyle: "none",
+            margin: 0,
+            padding: 0,
+            fontSize: "1.18rem",
+            fontWeight: 600,
+            fontFamily: "'Segoe UI', 'Roboto', 'Arial', sans-serif",
+            letterSpacing: "0.5px",
           }}
         >
-          {btnName}
-        </button>
-      </ul>
+          <li>
+            <Link
+              to="/mens"
+              style={{
+                color: "white",
+                textDecoration: "none",
+                padding: "6px 10px",
+                borderRadius: "8px",
+                transition: "background 0.15s",
+              }}
+            >
+              MENS
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/womens"
+              style={{
+                color: "white",
+                textDecoration: "none",
+                padding: "6px 10px",
+                borderRadius: "8px",
+                transition: "background 0.15s",
+              }}
+            >
+              WOMENS
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/kids"
+              style={{
+                color: "white",
+                textDecoration: "none",
+                padding: "6px 10px",
+                borderRadius: "8px",
+                transition: "background 0.15s",
+              }}
+            >
+              KIDS
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/about"
+              style={{
+                color: "white",
+                textDecoration: "none",
+                padding: "6px 10px",
+                borderRadius: "8px",
+                transition: "background 0.15s",
+              }}
+            >
+              ABOUT
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/cart"
+              style={{
+                color: "white",
+                textDecoration: "none",
+                padding: "6px 10px",
+                borderRadius: "8px",
+                transition: "background 0.15s",
+              }}
+            >
+              CART
+            </Link>
+          </li>
+        </ul>
+      </nav>
     </div>
   );
 };

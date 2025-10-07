@@ -4,7 +4,7 @@ const Skeleton = () => {
   // Render 8 skeleton cards for loading state
   return (
     <div className="skeleton-container">
-      {Array.from({ length: 8 }).map((_, idx) => (
+      {Array.from({ length: 10 }).map((_, idx) => (
         <div className="skeleton-card" key={idx}>
           <div className="skeleton-img" />
           <div className="skeleton-title" />
