@@ -12,8 +12,9 @@
   <a href="https://github.com/OmkarYelsange/React-Project-E-Commerce-Website"><b>📂 Repository</b></a>
 </p>
 
+
 A **modern, responsive e-commerce web application** built with **React + Vite**.  
-This project demonstrates key e-commerce features such as product browsing, cart management, authentication, and a smooth user experience.
+This project demonstrates key e-commerce features such as product browsing, cart management, authentication, and smooth UI interactions.
 
 ---
 ## ✨ Features
