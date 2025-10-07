@@ -1,16 +1,9 @@
 
 <h1 align="center">🛍️ React E-Commerce WebApp</h1>
 
-<p align="center">
-  <a href="https://react-e-commerce-webapp.netlify.app/">
-    <img src="https://api.netlify.com/api/v1/badges/0f6e2b3a-badge-example/deploy-status" alt="Netlify Status">
-  </a>
-</p>
-
-<p align="center">
-  <a href="https://react-e-commerce-webapp.netlify.app/"><b>🌐 Live Demo</b></a> •
-  <a href="https://github.com/OmkarYelsange/React-Project-E-Commerce-Website"><b>📂 Repository</b></a>
-</p>
+### 🚀 Live Links
+🔗 **[Live Demo](https://your-live-demo-link.netlify.app)**  
+📂 **[Repository](https://github.com/OmkarYelsange/React-Project-E-Commerce-Website)**  
 
 
 A **modern, responsive e-commerce web application** built with **React + Vite**.  
