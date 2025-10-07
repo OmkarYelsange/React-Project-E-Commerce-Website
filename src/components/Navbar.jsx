@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import "../App.css";
 
 const Navbar = () => {
   const [btnName, setBtnName] = useState("☀️");
+
+  useEffect(() => {}, []);
 
   return (
     <div
@@ -18,12 +21,22 @@ const Navbar = () => {
         color: "white",
       }}
     >
-      <h1>LOGO</h1>
+      <h1>
+        <Link to="/">LOGO</Link>
+      </h1>
       <ul>
-        <li>MENS</li>
-        <li>WOMENS</li>
-        <li>KIDS</li>
-        <li>CART</li>
+        <li>
+          <Link to="/mens">MENS</Link>
+        </li>
+        <li>
+          <Link to="/womens">WOMENS</Link>
+        </li>
+        <li>
+          <Link to="/kids">KIDS</Link>
+        </li>
+        <li>
+          <Link to="/cart">CART</Link>
+        </li>
         <button
           style={{
             background: "purple",

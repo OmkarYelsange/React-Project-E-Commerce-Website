@@ -3,10 +3,11 @@ import Product from "./Product";
 // import { ProductList } from "../Data/ProductList";
 import { useEffect } from "react";
 import Skeleton from "./Skeleton";
+import { Link } from "react-router-dom";
 
 const ProductCard = () => {
-  // const [TopProducts, setTopProducts] = useState(ProductList);
-  const [TopProducts, setTopProducts] = useState([]);
+  const [allProducts, setAllProducts] = useState([]); // store all products
+  const [TopProducts, setTopProducts] = useState([]); // currently displayed products
   const [btnName, setBtnName] = useState("Top Products");
   const [searchText, setSearchText] = useState("");
   const [searchedProducts, setsearchedProducts] = useState([]);
@@ -18,6 +19,7 @@ const ProductCard = () => {
   const fetchData = async () => {
     const data = await fetch("https://fakestoreapi.com/products");
     const jsonData = await data.json();
+    setAllProducts(jsonData);
     setTopProducts(jsonData);
     setsearchedProducts(jsonData);
   };
@@ -43,17 +45,17 @@ const ProductCard = () => {
               border: "1px solid black",
             }}
             onClick={() => {
-              const filteredProduct = TopProducts.filter(
-                (ProductList) => ProductList.rating.rate >= 4
-              );
-
-              setTopProducts(filteredProduct);
-              btnName === "Top Products"
-                ? setBtnName("All Products")
-                : setBtnName("Top Products");
-
-              if (btnName === "All Products") {
-                fetchData();
+              if (btnName === "Top Products") {
+                const filteredProduct = allProducts.filter(
+                  (product) => product.rating && product.rating.rate >= 4
+                );
+                setTopProducts(filteredProduct);
+                setsearchedProducts(filteredProduct);
+                setBtnName("All Products");
+              } else {
+                setTopProducts(allProducts);
+                setsearchedProducts(allProducts);
+                setBtnName("Top Products");
               }
             }}
           >
@@ -99,7 +101,11 @@ const ProductCard = () => {
       </div>
       <div className="Product_Card">
         {searchedProducts.map((ProductList) => {
-          return <Product key={ProductList.id} ProductList={ProductList} />;
+          return (
+            <Link key={ProductList.id} to={`/products/${ProductList.id}`}>
+              <Product ProductList={ProductList} />
+            </Link>
+          );
         })}
       </div>
     </div>
