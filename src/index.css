@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* Product Details Card Styles */
 .product-details-card {
   display: flex;

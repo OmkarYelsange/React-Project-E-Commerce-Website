@@ -102,7 +102,11 @@ const ProductCard = () => {
       <div className="Product_Card">
         {searchedProducts.map((ProductList) => {
           return (
-            <Link key={ProductList.id} to={`/products/${ProductList.id}`}>
+            <Link
+              style={{ textDecoration: "none" }}
+              key={ProductList.id}
+              to={`/products/${ProductList.id}`}
+            >
               <Product ProductList={ProductList} />
             </Link>
           );

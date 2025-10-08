@@ -1,15 +1,20 @@
+import { createBrowserRouter, Outlet } from "react-router-dom";
 import Footer from "./components/Footer";
 import ProductCard from "./components/ProductCard";
 import Navbar from "./components/Navbar";
 import "./index.css";
-import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Mens from "./pages/Mens";
 import Womens from "./pages/Womens";
 import Kids from "./pages/Kids";
 import Cart from "./pages/Cart";
-import Error from "./components/Error";
+import Error from "./pages/Error";
 import ProductDetails from "./components/ProductDetails";
-import About from "./pages/About";
+// import About from "./pages/About";
+// import Grocery from "./components/Grocery";
+import { lazy, Suspense } from "react";
+
+const Grocery = lazy(() => import("./components/Grocery"));
+const About = lazy(() => import("./pages/About"));
 
 function App() {
   return (
@@ -51,8 +56,20 @@ export const appRouter = createBrowserRouter([
         element: <Kids />,
       },
       {
+        path: "/grocery",
+        element: (
+          <Suspense fallback={<h1>Loading...</h1>}>
+            <Grocery />
+          </Suspense>
+        ),
+      },
+      {
         path: "/about",
-        element: <About />,
+        element: (
+          <Suspense fallback={<h1>Loading...</h1>}>
+            <About />
+          </Suspense>
+        ),
       },
       {
         path: "/cart",

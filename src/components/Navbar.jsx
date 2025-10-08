@@ -23,18 +23,40 @@ const Navbar = () => {
         letterSpacing: "0.5px",
       }}
     >
-      <h1
+      <Link
+        to="/"
         style={{
-          fontSize: "2rem",
-          fontWeight: 700,
-          margin: 0,
-          letterSpacing: "2px",
+          display: "flex",
+          gap: "10px",
+          color: "white",
+          textDecoration: "none",
         }}
       >
-        <Link to="/" style={{ color: "white", textDecoration: "none" }}>
-          LOGO
-        </Link>
-      </h1>
+        <img
+          src="/image.png"
+          alt="Logo"
+          style={{
+            width: "40px",
+            height: "40px",
+            border: "1px solid white",
+            borderRadius: "50%",
+            objectFit: "cover",
+          }}
+        />
+        <h1
+          style={{
+            fontSize: "2rem",
+            fontWeight: 700,
+            margin: 0,
+            letterSpacing: "2px",
+            alignContent: "center",
+          }}
+        >
+          <Link to="/" style={{ color: "white", textDecoration: "none" }}>
+            E-Shop
+          </Link>
+        </h1>
+      </Link>
       <nav
         style={{
           display: "flex",
@@ -97,6 +119,19 @@ const Navbar = () => {
               }}
             >
               KIDS
+            </Link>
+            <Link
+              to="/grocery"
+              style={{
+                marginLeft: "20px",
+                color: "white",
+                textDecoration: "none",
+                padding: "6px 10px",
+                borderRadius: "8px",
+                transition: "background 0.15s",
+              }}
+            >
+              GROCERY
             </Link>
           </li>
           <li>
