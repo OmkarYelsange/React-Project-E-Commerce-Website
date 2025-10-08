@@ -131,6 +131,6 @@ Copyright (c) 2025 Omkar Yelsange
 👤 **Omkar Yelsange**  
 💼 **GitHub:** [OmkarYelsange](https://github.com/OmkarYelsange)  
 🌐 **Live Demo:** [React E-Commerce WebApp](https://react-e-commerce-webapp.netlify.app/)  
-📧 **Email:** omkaryelsange@gmail.com  
+📧 **Email:** omkaryelsange1010@gmail.com  
 🔗 **Project Repository:** [View on GitHub](https://github.com/OmkarYelsange/React-Project-E-Commerce-Website)  
 💬 **LinkedIn:** [Omkar Yelsange](https://www.linkedin.com/in/omkaryelsange)
