@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Product from "./Product";
+import Product, { HigherOrderFn } from "./Product";
 // import { ProductList } from "../Data/ProductList";
 import { useEffect } from "react";
 import Skeleton from "./Skeleton";
@@ -24,26 +24,33 @@ const ProductCard = () => {
     setsearchedProducts(jsonData);
   };
 
+  const HigherOrderComponent = HigherOrderFn(Product);
+
   return TopProducts.length === 0 ? (
     <Skeleton />
   ) : (
     <div>
-      <div style={{ display: "flex", justifyContent: "space-between" }}>
+      <div
+        className="flex justify-between"
+        // style={{ display: "flex", justifyContent: "space-between" }}
+      >
         <div
-          style={{
-            marginTop: "10px",
-            display: "flex",
-          }}
+          className="flex mt-[10px]"
+          // style={{
+          //   marginTop: "10px",
+          //   display: "flex",
+          // }}
         >
           <button
-            style={{
-              margin: "10px",
-              background: "purple",
-              color: "white",
-              padding: "10px",
-              borderRadius: "20px",
-              border: "1px solid black",
-            }}
+            className="m-[10px] bg-purple-500 text-white p-[10px] rounded-[20px] border border-black"
+            // style={{
+            //   margin: "10px",
+            //   background: "purple",
+            //   color: "white",
+            //   padding: "10px",
+            //   borderRadius: "20px",
+            //   border: "1px solid black",
+            // }}
             onClick={() => {
               if (btnName === "Top Products") {
                 const filteredProduct = allProducts.filter(
@@ -68,22 +75,25 @@ const ProductCard = () => {
             }}
             placeholder="Search Product"
             value={searchText}
-            style={{
-              margin: "10px",
-              padding: "10px",
-              borderRadius: "10px",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
+            className="m-[10px] p-[10px] rounded-[10px] justify-center items-center flex"
+
+            // style={{
+            //   margin: "10px",
+            //   padding: "10px",
+            //   borderRadius: "10px",
+            //   justifyContent: "center",
+            //   alignItems: "center",
+            // }}
           />
 
           <button
-            style={{
-              margin: "10px",
-              padding: "10px",
-              borderRadius: "20px",
-              border: "1px solid black",
-            }}
+            className="m-[10px] p-[10px] rounded-[20px] border border-black"
+            // style={{
+            //   margin: "10px",
+            //   padding: "10px",
+            //   borderRadius: "20px",
+            //   border: "1px solid black",
+            // }}
             onClick={() => {
               console.log(searchText);
               const filteredProduct = TopProducts.filter((ProductList) => {
@@ -103,11 +113,16 @@ const ProductCard = () => {
         {searchedProducts.map((ProductList) => {
           return (
             <Link
-              style={{ textDecoration: "none" }}
+              className="no-underline"
+              // style={{ textDecoration: "none" }}
               key={ProductList.id}
               to={`/products/${ProductList.id}`}
             >
-              <Product ProductList={ProductList} />
+              {ProductList.rating.rate >= 4 ? (
+                <HigherOrderComponent ProductList={ProductList} />
+              ) : (
+                <Product ProductList={ProductList} />
+              )}
             </Link>
           );
         })}

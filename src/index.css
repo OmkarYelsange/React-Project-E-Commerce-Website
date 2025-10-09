@@ -221,6 +221,7 @@ body {
   background: linear-gradient(120deg, #f8fafc 0%, #e0e7ff 100%);
   font-family: "Segoe UI", "Roboto", "Arial", sans-serif;
   color: #22223b;
+  scroll-behavior: smooth;
 }
 
 .Product_Card {

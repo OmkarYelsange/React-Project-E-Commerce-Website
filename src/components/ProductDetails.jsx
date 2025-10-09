@@ -30,7 +30,7 @@ const ProductDetails = () => {
             ({rating?.count} ratings)
           </span>
         </div>
-        <div className="product-details-price">$ {price}</div>
+        <div className="product-details-price">Price : $ {price}</div>
         <button className="product-details-btn">Add to Cart</button>
       </div>
     </div>

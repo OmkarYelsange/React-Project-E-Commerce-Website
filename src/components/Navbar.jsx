@@ -52,9 +52,7 @@ const Navbar = () => {
             alignContent: "center",
           }}
         >
-          <Link to="/" style={{ color: "white", textDecoration: "none" }}>
-            E-Shop
-          </Link>
+          <span style={{ color: "white", textDecoration: "none" }}>E-Shop</span>
         </h1>
       </Link>
       <nav
