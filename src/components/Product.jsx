@@ -34,7 +34,10 @@ const Product = ({ ProductList }) => {
       </p>
 
       {/* Add to Cart Button */}
-      <button className="bg-purple-700 hover:bg-purple-800 text-white font-semibold px-4 py-2 rounded-md transition-all duration-300 shadow-md hover:shadow-[0_0_12px_rgba(147,51,234,0.6)] mt-3 w-[80%] text-sm">
+      <button
+        className="bg-purple-700 hover:bg-purple-800 text-white font-semibold px-4 py-2 rounded-md transition-all duration-300 shadow-md hover:shadow-[0_0_12px_rgba(147,51,234,0.6)] mt-3 w-[80%] text-sm"
+        onClick={() => (window.location.href = "/cart")}
+      >
         Add to Cart
       </button>
     </div>

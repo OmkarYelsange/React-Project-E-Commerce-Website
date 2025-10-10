@@ -13,156 +13,56 @@ const ProductDetails = () => {
   const { image, title, price, description, category, rating } = singleProduct;
 
   return (
-    <div
-      className="product-details-card"
-      style={{
-        position: "relative",
-        display: "flex",
-        flexWrap: "wrap",
-        alignItems: "flex-start",
-        justifyContent: "center",
-        backgroundColor: "#fff",
-        borderRadius: "12px",
-        padding: "20px",
-        boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
-        maxWidth: "900px",
-        margin: "40px auto",
-        overflow: "hidden",
-        transition: "transform 0.3s ease, box-shadow 0.3s ease",
-      }}
-      onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
-      onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
-    >
-      {/* ✅ Conditionally render Best Seller badge (rating > 4.5) */}
+    <div className="relative flex flex-wrap items-start justify-center   bg-white rounded-xl p-6 shadow-md max-w-5xl mx-auto my-10 overflow-hidden transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_20px_rgba(147,51,234,0.3)]">
+      {/* 🏷️ Best Seller Badge */}
       {rating?.rate > 4 && (
-        <span
-          style={{
-            position: "absolute",
-            top: "10px",
-            left: "10px",
-            backgroundColor: "purple",
-            color: "white",
-            padding: "6px 12px",
-            borderRadius: "6px",
-            fontSize: "13px",
-            fontWeight: "600",
-            zIndex: 10,
-            pointerEvents: "none",
-          }}
-        >
+        <span className="absolute top-3 left-3 bg-purple-700 text-white px-3 py-1 rounded-md text-xs font-semibold z-10 pointer-events-none shadow-md">
           Best Seller
         </span>
       )}
 
       {/* 🖼️ Product Image */}
-      <div
-        className="product-details-img-wrap"
-        style={{
-          flex: "1 1 40%",
-          textAlign: "center",
-          minWidth: "280px",
-        }}
-      >
+      <div className="flex-1 basis-[40%] min-w-[280px] text-center">
         <img
-          className="product-details-img"
           src={image}
           alt={title}
-          style={{
-            width: "100%",
-            maxWidth: "300px",
-            borderRadius: "10px",
-            objectFit: "contain",
-          }}
+          className="w-full max-w-[300px] rounded-lg object-contain mx-auto"
         />
       </div>
 
-      {/* 🧾 Product Information */}
-      <div
-        className="product-details-info"
-        style={{
-          flex: "1 1 55%",
-          paddingLeft: "30px",
-          paddingTop: "10px",
-          minWidth: "280px",
-        }}
-      >
-        <h1
-          className="product-details-title"
-          style={{
-            fontSize: "26px",
-            fontWeight: "bold",
-            marginBottom: "15px",
-            color: "#222",
-          }}
-        >
+      {/* 🧾 Product Info */}
+      <div className="flex-1 basis-[55%] min-w-[280px] pl-6 pt-3 sm:pt-4">
+        <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-3">
           {title}
         </h1>
 
-        <p
-          className="product-details-desc"
-          style={{
-            fontSize: "16px",
-            color: "#444",
-            lineHeight: "1.6",
-            marginBottom: "15px",
-          }}
-        >
+        <p className="text-gray-600 text-base leading-relaxed mb-4">
           {description}
         </p>
 
-        <div
-          className="product-details-meta"
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            gap: "15px",
-            fontSize: "14px",
-            color: "#555",
-            marginBottom: "10px",
-          }}
-        >
-          <span className="product-details-category">
-            Category: <strong>{category}</strong>
+        <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500 mb-3">
+          <span>
+            Category:{" "}
+            <strong className="text-gray-800 capitalize">{category}</strong>
           </span>
-          <span className="product-details-rating">
+          <span className="flex items-center">
             {rating?.rate}{" "}
-            <span role="img" aria-label="star">
+            <span role="img" aria-label="star" className="ml-1">
               ⭐
-            </span>{" "}
-            ({rating?.count} ratings)
+            </span>
+            <span className="ml-1 text-gray-400">
+              ({rating?.count} ratings)
+            </span>
           </span>
         </div>
 
-        <div
-          className="product-details-price"
-          style={{
-            fontSize: "20px",
-            fontWeight: "600",
-            margin: "10px 0 20px 0",
-            color: "purple",
-          }}
-        >
+        <div className="text-xl font-semibold text-purple-700 mb-5">
           Price: ${price}
         </div>
 
         <button
-          className="product-details-btn"
-          style={{
-            padding: "10px 20px",
-            backgroundColor: "purple",
-            color: "white",
-            border: "none",
-            borderRadius: "6px",
-            cursor: "pointer",
-            fontSize: "15px",
-            transition: "background-color 0.3s ease",
-          }}
-          onMouseEnter={(e) =>
-            (e.currentTarget.style.backgroundColor = "#6b21a8")
-          }
-          onMouseLeave={(e) =>
-            (e.currentTarget.style.backgroundColor = "purple")
-          }
+          className="px-5 py-2.5 bg-purple-700 hover:bg-purple-800 text-white rounded-md font-semibold shadow-md hover:shadow-[0_0_12px_rgba(147,51,234,0.5)] transition-all duration-300"
+          onClick={() => (window.location.href = "/cart")}
         >
           Add to Cart
         </button>
