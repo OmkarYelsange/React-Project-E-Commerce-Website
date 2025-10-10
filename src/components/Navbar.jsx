@@ -1,92 +1,51 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
 
 const Navbar = () => {
-  const [btnName, setBtnName] = useState("☀️");
-
-  useEffect(() => {}, []);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div
-      className="navbar"
-      style={{
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        borderBottom: "1px solid #fff",
-        padding: "18px 40px",
-        backgroundColor: "purple",
-        color: "white",
-        minHeight: "64px",
-        fontFamily: "'Segoe UI', 'Roboto', 'Arial', sans-serif",
-        letterSpacing: "0.5px",
-      }}
-    >
+    <header className="flex justify-between items-center border-b border-black py-4 px-6 md:py-[18px] md:px-[40px] bg-purple-700 text-white min-h-16 font-sans tracking-[0.5px]">
+      {/* Logo Section */}
       <Link
         to="/"
-        style={{
-          display: "flex",
-          gap: "10px",
-          color: "white",
-          textDecoration: "none",
-        }}
+        className="flex items-center gap-2.5 text-white no-underline"
       >
         <img
           src="/image.png"
           alt="Logo"
-          style={{
-            width: "40px",
-            height: "40px",
-            border: "1px solid white",
-            borderRadius: "50%",
-            objectFit: "cover",
-          }}
+          className="w-10 h-10 border border-white rounded-full object-cover"
         />
-        <h1
-          style={{
-            fontSize: "2rem",
-            fontWeight: 700,
-            margin: 0,
-            letterSpacing: "2px",
-            alignContent: "center",
-          }}
-        >
-          <span style={{ color: "white", textDecoration: "none" }}>E-Shop</span>
+        <h1 className="text-xl sm:text-2xl font-bold m-0 tracking-[2px] content-center">
+          <span className="text-white no-underline text-3xl font-bold">
+            E-Shop
+          </span>
         </h1>
       </Link>
-      <nav
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "24px",
-          height: "100%",
-        }}
+
+      {/* Hamburger Icon (Mobile) */}
+      <button
+        className="block md:hidden text-white text-3xl focus:outline-none"
+        onClick={() => setMenuOpen(!menuOpen)}
       >
-        <ul
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "28px",
-            listStyle: "none",
-            margin: 0,
-            padding: 0,
-            fontSize: "1.18rem",
-            fontWeight: 600,
-            fontFamily: "'Segoe UI', 'Roboto', 'Arial', sans-serif",
-            letterSpacing: "0.5px",
-          }}
-        >
+        {menuOpen ? "✖" : "☰"}
+      </button>
+
+      {/* Nav Links */}
+      <nav
+        className={`${
+          menuOpen
+            ? "flex flex-col absolute top-[72px] left-0 w-full bg-purple-700 border-t border-black py-4"
+            : "hidden"
+        } md:flex md:items-center md:gap-6 md:h-full md:static md:bg-transparent md:border-none`}
+      >
+        <ul className="flex flex-col md:flex-row items-center gap-4 md:gap-7 list-none m-0 p-0 text-lg md:text-[1.18rem] font-semibold font-sans tracking-[0.5px]">
           <li>
             <Link
               to="/mens"
-              style={{
-                color: "white",
-                textDecoration: "none",
-                padding: "6px 10px",
-                borderRadius: "8px",
-                transition: "background 0.15s",
-              }}
+              className="text-white no-underline px-3 py-2 rounded-lg hover:bg-purple-500 transition-colors duration-150"
+              onClick={() => setMenuOpen(false)}
             >
               MENS
             </Link>
@@ -94,13 +53,8 @@ const Navbar = () => {
           <li>
             <Link
               to="/womens"
-              style={{
-                color: "white",
-                textDecoration: "none",
-                padding: "6px 10px",
-                borderRadius: "8px",
-                transition: "background 0.15s",
-              }}
+              className="text-white no-underline px-3 py-2 rounded-lg hover:bg-purple-500 transition-colors duration-150"
+              onClick={() => setMenuOpen(false)}
             >
               WOMENS
             </Link>
@@ -108,26 +62,17 @@ const Navbar = () => {
           <li>
             <Link
               to="/kids"
-              style={{
-                color: "white",
-                textDecoration: "none",
-                padding: "6px 10px",
-                borderRadius: "8px",
-                transition: "background 0.15s",
-              }}
+              className="text-white no-underline px-3 py-2 rounded-lg hover:bg-purple-500 transition-colors duration-150"
+              onClick={() => setMenuOpen(false)}
             >
               KIDS
             </Link>
+          </li>
+          <li>
             <Link
               to="/grocery"
-              style={{
-                marginLeft: "20px",
-                color: "white",
-                textDecoration: "none",
-                padding: "6px 10px",
-                borderRadius: "8px",
-                transition: "background 0.15s",
-              }}
+              className="text-white no-underline px-3 py-2 rounded-lg hover:bg-purple-500 transition-colors duration-150"
+              onClick={() => setMenuOpen(false)}
             >
               GROCERY
             </Link>
@@ -135,13 +80,8 @@ const Navbar = () => {
           <li>
             <Link
               to="/about"
-              style={{
-                color: "white",
-                textDecoration: "none",
-                padding: "6px 10px",
-                borderRadius: "8px",
-                transition: "background 0.15s",
-              }}
+              className="text-white no-underline px-3 py-2 rounded-lg hover:bg-purple-500 transition-colors duration-150"
+              onClick={() => setMenuOpen(false)}
             >
               ABOUT
             </Link>
@@ -149,20 +89,15 @@ const Navbar = () => {
           <li>
             <Link
               to="/cart"
-              style={{
-                color: "white",
-                textDecoration: "none",
-                padding: "6px 10px",
-                borderRadius: "8px",
-                transition: "background 0.15s",
-              }}
+              className="text-white no-underline px-3 py-2 rounded-lg hover:bg-purple-500 transition-colors duration-150"
+              onClick={() => setMenuOpen(false)}
             >
               CART
             </Link>
           </li>
         </ul>
       </nav>
-    </div>
+    </header>
   );
 };
 

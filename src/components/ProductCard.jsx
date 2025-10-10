@@ -1,16 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Product, { HigherOrderFn } from "./Product";
-// import { ProductList } from "../Data/ProductList";
-import { useEffect } from "react";
 import Skeleton from "./Skeleton";
 import { Link } from "react-router-dom";
 
 const ProductCard = () => {
-  const [allProducts, setAllProducts] = useState([]); // store all products
-  const [TopProducts, setTopProducts] = useState([]); // currently displayed products
+  const [allProducts, setAllProducts] = useState([]);
+  const [topProducts, setTopProducts] = useState([]);
   const [btnName, setBtnName] = useState("Top Products");
   const [searchText, setSearchText] = useState("");
-  const [searchedProducts, setsearchedProducts] = useState([]);
+  const [searchedProducts, setSearchedProducts] = useState([]);
 
   useEffect(() => {
     fetchData();
@@ -21,111 +19,81 @@ const ProductCard = () => {
     const jsonData = await data.json();
     setAllProducts(jsonData);
     setTopProducts(jsonData);
-    setsearchedProducts(jsonData);
+    setSearchedProducts(jsonData);
   };
 
-  const HigherOrderComponent = HigherOrderFn(Product);
+  // ✅ Initialize Higher Order Component only once
+  const HigherOrderProduct = HigherOrderFn();
 
-  return TopProducts.length === 0 ? (
+  const handleToggleProducts = () => {
+    if (btnName === "Top Products") {
+      const filtered = allProducts.filter(
+        (product) => product.rating && product.rating.rate >= 4
+      );
+      setTopProducts(filtered);
+      setSearchedProducts(filtered);
+      setBtnName("All Products");
+    } else {
+      setTopProducts(allProducts);
+      setSearchedProducts(allProducts);
+      setBtnName("Top Products");
+    }
+  };
+
+  const handleSearch = () => {
+    const filtered = topProducts.filter((p) =>
+      p.title.toLowerCase().includes(searchText.toLowerCase())
+    );
+    setSearchedProducts(filtered);
+    setSearchText("");
+  };
+
+  return topProducts.length === 0 ? (
     <Skeleton />
   ) : (
-    <div>
-      <div
-        className="flex justify-between"
-        // style={{ display: "flex", justifyContent: "space-between" }}
-      >
-        <div
-          className="flex mt-[10px]"
-          // style={{
-          //   marginTop: "10px",
-          //   display: "flex",
-          // }}
-        >
+    <div className="px-4 sm:px-8 md:px-16 lg:px-20 xl:px-28 min-h-screen flex flex-wrap bg-gradient-to-b from-blue-50 via-blue-100 to-blue-50 p-5 justify-center gap-6 ">
+      {/* 🔍 Toolbar Section */}
+      <div className="sticky top-0 z-20 bg-white/90 backdrop-blur-md border-b border-gray-300 rounded-xl shadow-sm py-4 px-2 sm:px-6 md:px-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div className="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto">
           <button
-            className="m-[10px] bg-purple-500 text-white p-[10px] rounded-[20px] border border-black"
-            // style={{
-            //   margin: "10px",
-            //   background: "purple",
-            //   color: "white",
-            //   padding: "10px",
-            //   borderRadius: "20px",
-            //   border: "1px solid black",
-            // }}
-            onClick={() => {
-              if (btnName === "Top Products") {
-                const filteredProduct = allProducts.filter(
-                  (product) => product.rating && product.rating.rate >= 4
-                );
-                setTopProducts(filteredProduct);
-                setsearchedProducts(filteredProduct);
-                setBtnName("All Products");
-              } else {
-                setTopProducts(allProducts);
-                setsearchedProducts(allProducts);
-                setBtnName("Top Products");
-              }
-            }}
+            className="bg-purple-700 hover:bg-purple-800 text-white font-semibold px-6 py-2 rounded-full border border-black transition duration-300 shadow-md hover:shadow-lg"
+            onClick={handleToggleProducts}
           >
             {btnName}
           </button>
+
           <input
             type="text"
-            onChange={(e) => {
-              setSearchText(e.target.value);
-            }}
             placeholder="Search Product"
             value={searchText}
-            className="m-[10px] p-[10px] rounded-[10px] justify-center items-center flex"
-
-            // style={{
-            //   margin: "10px",
-            //   padding: "10px",
-            //   borderRadius: "10px",
-            //   justifyContent: "center",
-            //   alignItems: "center",
-            // }}
+            onChange={(e) => setSearchText(e.target.value)}
+            className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500 w-full sm:w-64"
           />
 
           <button
-            className="m-[10px] p-[10px] rounded-[20px] border border-black"
-            // style={{
-            //   margin: "10px",
-            //   padding: "10px",
-            //   borderRadius: "20px",
-            //   border: "1px solid black",
-            // }}
-            onClick={() => {
-              console.log(searchText);
-              const filteredProduct = TopProducts.filter((ProductList) => {
-                return ProductList.title
-                  .toLowerCase()
-                  .includes(searchText.toLowerCase());
-              });
-              setsearchedProducts(filteredProduct);
-              setSearchText("");
-            }}
+            className="bg-purple-700 hover:bg-purple-800 text-white font-semibold px-6 py-2 rounded-full border border-black transition duration-300 shadow-md hover:shadow-lg"
+            onClick={handleSearch}
           >
             Search
           </button>
         </div>
       </div>
-      <div className="Product_Card">
-        {searchedProducts.map((ProductList) => {
-          return (
-            <Link
-              className="no-underline"
-              // style={{ textDecoration: "none" }}
-              key={ProductList.id}
-              to={`/products/${ProductList.id}`}
-            >
-              {ProductList.rating.rate >= 4 ? (
-                <HigherOrderComponent ProductList={ProductList} />
-              ) : (
-                <Product ProductList={ProductList} />
-              )}
-            </Link>
-          );
-        })}
+
+      {/* 🛍️ Product Cards Grid */}
+      <div className="min-h-screen bg-gradient-to-b from-blue-50 via-blue-100 to-blue-50 p-5 flex flex-wrap justify-center gap-6">
+        {searchedProducts.map((product) => (
+          <Link
+            className="no-underline"
+            key={product.id}
+            to={`/products/${product.id}`}
+          >
+            {product.rating.rate >= 4 ? (
+              <HigherOrderProduct ProductList={product} />
+            ) : (
+              <Product ProductList={product} />
+            )}
+          </Link>
+        ))}
       </div>
     </div>
   );

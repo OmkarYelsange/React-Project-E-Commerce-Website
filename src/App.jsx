@@ -2,7 +2,7 @@ import { createBrowserRouter, Outlet } from "react-router-dom";
 import Footer from "./components/Footer";
 import ProductCard from "./components/ProductCard";
 import Navbar from "./components/Navbar";
-import "./index.css";
+import "./App.css";
 import Mens from "./pages/Mens";
 import Womens from "./pages/Womens";
 import Kids from "./pages/Kids";
