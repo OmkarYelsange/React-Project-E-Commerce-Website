@@ -2,7 +2,7 @@ import { createBrowserRouter, Outlet } from "react-router-dom";
 import Footer from "./components/Footer";
 import ProductCard from "./components/ProductCard";
 import Navbar from "./components/Navbar";
-import "./index.css";
+import "./App.css";
 import Mens from "./pages/Mens";
 import Womens from "./pages/Womens";
 import Kids from "./pages/Kids";
@@ -12,6 +12,7 @@ import ProductDetails from "./components/ProductDetails";
 // import About from "./pages/About";
 // import Grocery from "./components/Grocery";
 import { lazy, Suspense } from "react";
+import SingleProduct from "./pages/SingleProduct";
 
 const Grocery = lazy(() => import("./components/Grocery"));
 const About = lazy(() => import("./pages/About"));
@@ -77,7 +78,7 @@ export const appRouter = createBrowserRouter([
       },
       {
         path: "/products/:productId",
-        element: <ProductDetails />,
+        element: <SingleProduct />,
       },
     ],
     errorElement: <Error />,
