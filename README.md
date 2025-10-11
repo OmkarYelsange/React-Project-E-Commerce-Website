@@ -2,7 +2,7 @@
 <h1 align="center">🛍️ React E-Commerce WebApp</h1>
 
 ### 🚀 Live Links
-🔗 **[Live Demo](https://react-e-commerce-webapp.netlify.app/)**  
+🔗 **[Live Demo](https://react-project-e-commerce-website.vercel.app/)**  
 📂 **[Repository](https://github.com/OmkarYelsange/React-Project-E-Commerce-Website)**  
 
 
