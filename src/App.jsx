@@ -5,32 +5,29 @@ import Navbar from "./components/Navbar";
 import "./App.css";
 import Mens from "./pages/Mens";
 import Womens from "./pages/Womens";
-import Kids from "./pages/Electronics";
 import Cart from "./pages/Cart";
 import Error from "./pages/Error";
 import { lazy, Suspense } from "react";
 import SingleProduct from "./pages/SingleProduct";
 import Electronics from "./pages/Electronics";
+import { Provider } from "react-redux";
+import appStore from "./store/store";
 
-const About = lazy(() => import("./pages/About"));
+const Jewellery = lazy(() => import("./pages/Jewellery"));
 
-function App() {
+const App = () => {
   return (
-    <div
-      style={{
-        minHeight: "100vh",
-        display: "flex",
-        flexDirection: "column",
-      }}
-    >
-      <Navbar />
-      <div style={{ flex: 1 }}>
-        <Outlet />
+    <Provider store={appStore}>
+      <div className="min-h-[100vh] flex flex-col">
+        <Navbar />
+        <div className="flex-grow">
+          <Outlet />
+        </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
+    </Provider>
   );
-}
+};
 
 export const appRouter = createBrowserRouter([
   {
@@ -55,10 +52,10 @@ export const appRouter = createBrowserRouter([
       },
 
       {
-        path: "/about",
+        path: "/jewellery",
         element: (
           <Suspense fallback={<h1>Loading...</h1>}>
-            <About />
+            <Jewellery />
           </Suspense>
         ),
       },

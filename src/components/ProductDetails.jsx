@@ -1,14 +1,21 @@
 import { useParams } from "react-router-dom";
 import Skeleton from "./Skeleton";
 import useGetSingleProduct from "../hooks/useGetSingleProduct";
+import { useDispatch } from "react-redux";
+import { addItems } from "../store/CartSlice";
 
 const ProductDetails = () => {
   const { productId } = useParams();
   const singleProduct = useGetSingleProduct(productId);
+  const dispatch = useDispatch(addItems);
 
   if (!singleProduct) {
     return <Skeleton />;
   }
+  const handleCartItems = () => {
+    // Dispatch action to add item to cart
+    dispatch(addItems(singleProduct));
+  };
 
   const { image, title, price, description, category, rating } = singleProduct;
 
@@ -62,7 +69,7 @@ const ProductDetails = () => {
 
         <button
           className="px-5 py-2.5 bg-purple-700 hover:bg-purple-800 text-white rounded-md font-semibold shadow-md hover:shadow-[0_0_12px_rgba(147,51,234,0.5)] transition-all duration-300"
-          onClick={() => (window.location.href = "/cart")}
+          onClick={handleCartItems}
         >
           Add to Cart
         </button>

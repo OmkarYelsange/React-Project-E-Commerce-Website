@@ -2,10 +2,12 @@ import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import "../App.css";
 import UserContext from "../utils/userContext";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const { name } = useContext(UserContext);
+  const cartItems = useSelector((store) => store.cart.CartItems);
 
   return (
     <header className="flex justify-between items-center border-b border-black py-4 px-6 md:py-[18px] md:px-[40px] bg-purple-700 text-white min-h-16 font-sans tracking-[0.5px]">
@@ -44,9 +46,9 @@ const Navbar = () => {
           {[
             { name: "MENS", path: "/mens" },
             { name: "WOMENS", path: "/womens" },
+            { name: "JEWELLERY", path: "/jewellery" },
             { name: "ELECTRONICS", path: "/electronics" },
-            { name: "ABOUT", path: "/about" },
-            { name: "CART", path: "/cart" },
+            { name: `CART ${cartItems.length}`, path: "/cart" },
             { name: `${name}`, path: "" },
           ].map((item) => (
             <li key={item.name}>

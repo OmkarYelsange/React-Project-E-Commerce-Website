@@ -1,8 +1,16 @@
 import React from "react";
+import { addItems } from "../store/CartSlice";
+import { useDispatch } from "react-redux";
 
 // ✅ Product Component
 const Product = ({ ProductList }) => {
   const { image, title, rating, price } = ProductList;
+  const dispatch = useDispatch(addItems);
+
+  const handleCartItems = () => {
+    // Dispatch action to add item to cart
+    dispatch(addItems(ProductList));
+  };
 
   return (
     <div className="flex flex-col justify-between items-center bg-white rounded-2xl shadow-md overflow-hidden p-5 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_15px_rgba(147,51,234,0.4)] w-[270px] h-[460px] sm:w-[290px] sm:h-[480px]">
@@ -36,7 +44,7 @@ const Product = ({ ProductList }) => {
       {/* Add to Cart Button */}
       <button
         className="bg-purple-700 hover:bg-purple-800 text-white font-semibold px-4 py-2 rounded-md transition-all duration-300 shadow-md hover:shadow-[0_0_12px_rgba(147,51,234,0.6)] mt-3 w-[80%] text-sm"
-        onClick={() => (window.location.href = "/cart")}
+        onClick={handleCartItems}
       >
         Add to Cart
       </button>

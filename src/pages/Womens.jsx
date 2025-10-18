@@ -1,7 +1,7 @@
 import React from "react";
 
 const Womens = () => {
-  return <h1>Womens</h1>;
+  return <div>Womens</div>;
 };
 
 export default Womens;
