@@ -5,16 +5,13 @@ import Navbar from "./components/Navbar";
 import "./App.css";
 import Mens from "./pages/Mens";
 import Womens from "./pages/Womens";
-import Kids from "./pages/Kids";
+import Kids from "./pages/Electronics";
 import Cart from "./pages/Cart";
 import Error from "./pages/Error";
-import ProductDetails from "./components/ProductDetails";
-// import About from "./pages/About";
-// import Grocery from "./components/Grocery";
 import { lazy, Suspense } from "react";
 import SingleProduct from "./pages/SingleProduct";
+import Electronics from "./pages/Electronics";
 
-const Grocery = lazy(() => import("./components/Grocery"));
 const About = lazy(() => import("./pages/About"));
 
 function App() {
@@ -53,17 +50,10 @@ export const appRouter = createBrowserRouter([
         element: <Womens />,
       },
       {
-        path: "/kids",
-        element: <Kids />,
+        path: "/electronics",
+        element: <Electronics />,
       },
-      {
-        path: "/grocery",
-        element: (
-          <Suspense fallback={<h1>Loading...</h1>}>
-            <Grocery />
-          </Suspense>
-        ),
-      },
+
       {
         path: "/about",
         element: (
