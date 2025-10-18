@@ -11,7 +11,7 @@ import { lazy, Suspense } from "react";
 import SingleProduct from "./pages/SingleProduct";
 import Electronics from "./pages/Electronics";
 import { Provider } from "react-redux";
-import appStore from "./store/store";
+import appStore from "./store/AppStore";
 
 const Jewellery = lazy(() => import("./pages/Jewellery"));
 
