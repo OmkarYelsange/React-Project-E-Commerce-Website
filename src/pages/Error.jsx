@@ -7,61 +7,33 @@ const Error = () => {
 
   return (
     <div
-      style={{
-        minHeight: "80vh",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        background: "linear-gradient(120deg, #f8fafc 0%, #e0e7ff 100%)",
-        borderRadius: "24px",
-        boxShadow: "0 4px 32px 0 rgba(34,34,59,0.10)",
-        margin: "40px auto",
-        maxWidth: "600px",
-        padding: "48px 32px",
-      }}
+      className="min-h-[80vh] flex flex-col items-center justify-center 
+      bg-gradient-to-tr from-slate-50 to-indigo-100 
+      rounded-3xl shadow-[0_4px_32px_rgba(34,34,59,0.10)] 
+      my-10 mx-auto max-w-[600px] px-8 py-12"
     >
-      <div style={{ fontSize: "5rem", marginBottom: "16px", color: "#5e60ce" }}>
-        🚫
-      </div>
+      <div className="text-[5rem] mb-4 text-indigo-500">🚫</div>
+
       <h1
-        style={{
-          fontSize: "2.2rem",
-          fontWeight: 700,
-          color: "#22223b",
-          marginBottom: "12px",
-          textAlign: "center",
-          letterSpacing: "1px",
-        }}
+        className="text-[2.2rem] font-bold text-[#22223b] mb-3 
+        text-center tracking-wide"
       >
         Oops! Something went wrong.
       </h1>
+
       <h2
-        style={{
-          fontSize: "1.3rem",
-          fontWeight: 500,
-          color: "#7c3aed",
-          marginBottom: "18px",
-          textAlign: "center",
-        }}
+        className="text-[1.3rem] font-medium text-violet-600 
+        mb-5 text-center"
       >
         404 - Page Not Found
       </h2>
 
       <a
         href="/"
-        style={{
-          marginTop: "18px",
-          background: "linear-gradient(90deg, #5e60ce 0%, #4361ee 100%)",
-          color: "#fff",
-          padding: "10px 28px",
-          borderRadius: "20px",
-          textDecoration: "none",
-          fontWeight: 600,
-          fontSize: "1.1rem",
-          boxShadow: "0 2px 8px 0 rgba(67, 97, 238, 0.10)",
-          transition: "background 0.18s, transform 0.18s",
-        }}
+        className="mt-4 bg-gradient-to-r from-indigo-500 to-indigo-600 
+        text-white px-7 py-2.5 rounded-2xl no-underline font-semibold 
+        text-[1.1rem] shadow-[0_2px_8px_rgba(67,97,238,0.10)] 
+        transition-all duration-200 hover:scale-105 hover:shadow-lg"
       >
         Go Home
       </a>
