@@ -32,7 +32,7 @@ This project demonstrates key e-commerce features such as product browsing, cart
 | **State Mgmt**   | React Context API / Reducer      |
 | **Styling**      | CSS / Tailwind CSS               |
 | **Build Tool**   | Vite                             |
-| **Deployment**   | Netlify                          |
+| **Deployment**   | Vercel                           |
 
 ---
 
