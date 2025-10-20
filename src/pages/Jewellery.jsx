@@ -1,7 +1,8 @@
 import React from "react";
+import ProductCard from "../components/ProductCard";
 
 const Jewellery = () => {
-  return <div>Jewellery</div>;
+  return <ProductCard category="jewelery" />;
 };
 
 export default Jewellery;

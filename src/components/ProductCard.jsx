@@ -7,9 +7,9 @@ import { Link } from "react-router-dom";
 const MemoizedProduct = React.memo(Product);
 const HigherOrderProduct = React.memo(HigherOrderFn());
 
-const ProductCard = () => {
+const ProductCard = ({ category }) => {
   const [allProducts, setAllProducts] = useState([]);
-  const [topProducts, setTopProducts] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
   const [btnName, setBtnName] = useState("Top Products");
   const [searchText, setSearchText] = useState("");
 
@@ -19,14 +19,22 @@ const ProductCard = () => {
       try {
         const data = await fetch("https://fakestoreapi.com/products");
         const jsonData = await data.json();
-        setAllProducts(jsonData);
-        setTopProducts(jsonData);
+
+        // If category prop is given → filter by category
+        if (category) {
+          const filtered = jsonData.filter((p) => p.category === category);
+          setAllProducts(filtered);
+          setFilteredProducts(filtered);
+        } else {
+          setAllProducts(jsonData);
+          setFilteredProducts(jsonData);
+        }
       } catch (error) {
         console.error("Error fetching products:", error);
       }
     };
     fetchData();
-  }, []);
+  }, [category]);
 
   // ✅ Toggle between Top and All Products
   const handleToggleProducts = useCallback(() => {
@@ -34,23 +42,23 @@ const ProductCard = () => {
       const filtered = allProducts.filter(
         (product) => product.rating && product.rating.rate >= 4
       );
-      setTopProducts(filtered);
+      setFilteredProducts(filtered);
       setBtnName("All Products");
     } else {
-      setTopProducts(allProducts);
+      setFilteredProducts(allProducts);
       setBtnName("Top Products");
     }
   }, [btnName, allProducts]);
 
-  // ✅ Memoized filtered search results (no unnecessary reflows)
+  // ✅ Memoized filtered search results
   const searchedProducts = useMemo(() => {
-    if (!searchText) return topProducts;
-    return topProducts.filter((p) =>
+    if (!searchText) return filteredProducts;
+    return filteredProducts.filter((p) =>
       p.title.toLowerCase().includes(searchText.toLowerCase())
     );
-  }, [searchText, topProducts]);
+  }, [searchText, filteredProducts]);
 
-  if (topProducts.length === 0) {
+  if (filteredProducts.length === 0) {
     return <Skeleton />;
   }
 

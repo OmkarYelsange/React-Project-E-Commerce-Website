@@ -1,7 +1,8 @@
 import React from "react";
+import ProductCard from "../components/ProductCard";
 
 const Womens = () => {
-  return <div>Womens</div>;
+  return <ProductCard category="women's clothing" />;
 };
 
 export default Womens;

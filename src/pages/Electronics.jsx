@@ -1,7 +1,8 @@
 import React from "react";
+import ProductCard from "../components/ProductCard";
 
 const Electronics = () => {
-  return <h1>ELECTRONICS</h1>;
+  return <ProductCard category="electronics" />;
 };
 
 export default Electronics;

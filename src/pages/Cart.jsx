@@ -1,10 +1,13 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { removeItems } from "../store/CartSlice"; // ✅ Make sure you have this action
+import { removeItems, clearItems } from "../store/CartSlice"; // ✅ Make sure you have this action
 
 const Cart = () => {
   const dispatch = useDispatch();
   const cartItems = useSelector((store) => store.cart.CartItems);
+  const ClearItemsHandler = () => {
+    dispatch(clearItems());
+  };
 
   // 🧾 Handle empty cart
   if (!cartItems || cartItems.length === 0) {
@@ -25,9 +28,17 @@ const Cart = () => {
 
   return (
     <div className="max-w-6xl mx-auto my-10 p-4 sm:p-6 bg-white rounded-xl shadow-md">
-      <h1 className="text-3xl font-bold mb-6 text-center text-purple-700">
-        🛍️ Your Cart
-      </h1>
+      <div className="flex flex-col sm:flex-row sm:justify-between items-center mb-8 gap-4">
+        <h1 className="text-4xl font-bold text-center text-purple-700">
+          🛍️ Your Cart
+        </h1>
+        <button
+          onClick={ClearItemsHandler}
+          className="px-5 py-2 bg-purple-700 hover:bg-purple-800 text-white text-lg rounded-md font-semibold shadow-md hover:shadow-[0_0_10px_rgba(147,51,234,0.5)] transition-all duration-300"
+        >
+          Clear Cart
+        </button>
+      </div>
 
       <div className="flex flex-col gap-6">
         {cartItems.map((item) => (
