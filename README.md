@@ -101,16 +101,6 @@ VITE_AUTH_KEY=your_secret_key
 ```
 ⚠️ Never commit .env files to GitHub!
 
-## 🚧 Future Enhancements
-
-✅ Order checkout & payment gateway
-✅ Wishlist feature
-✅ Product filters & sorting
-✅ Reviews and ratings system
-✅ Dark Mode
-✅ Admin dashboard for managing products
-✅ Performance optimization & lazy loading
-
 ## 🤝 Contributing
 
 Contributions are welcome!
