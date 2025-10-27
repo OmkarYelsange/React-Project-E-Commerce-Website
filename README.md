@@ -101,20 +101,6 @@ VITE_AUTH_KEY=your_secret_key
 ```
 ⚠️ Never commit .env files to GitHub!
 
-## 🤝 Contributing
-
-Contributions are welcome!
-Fork the repo
-Create your branch feature/YourFeature
-Commit your changes
-Push and open a pull request
-Please follow proper code style and documentation.
-
-## 🧾 License
-
-MIT License
-Copyright (c) 2025 Omkar Yelsange
-
 
 ## 📞 Contact
 
