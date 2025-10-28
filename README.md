@@ -1,5 +1,5 @@
 
-<h1 align="center">🛍️ React E-Commerce WebApp</h1>
+<h1 align="center">🛍️ React E-Commerce Website</h1>
 
 ### 🚀 Live Links
 🔗 **[Live Demo](https://react-project-e-commerce-website.vercel.app/)**  
@@ -99,8 +99,6 @@ VITE_API_URL=https://api.example.com
 VITE_AUTH_KEY=your_secret_key
 
 ```
-⚠️ Never commit .env files to GitHub!
-
 
 ## 📞 Contact
 
