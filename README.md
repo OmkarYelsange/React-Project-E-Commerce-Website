@@ -104,7 +104,7 @@ VITE_AUTH_KEY=your_secret_key
 
 👤 **Omkar Yelsange**  
 💼 **GitHub:** [OmkarYelsange](https://github.com/OmkarYelsange)  
-🌐 **Live Demo:** [React E-Commerce WebApp](https://react-project-e-commerce-website.vercel.app/)  
+🌐 **Live Demo:** [React E-Commerce Website](https://react-project-e-commerce-website.vercel.app/)  
 📧 **Email:** omkaryelsange1010@gmail.com  
 🔗 **Project Repository:** [View on GitHub](https://github.com/OmkarYelsange/React-Project-E-Commerce-Website)  
 💬 **LinkedIn:** [Omkar Yelsange](https://www.linkedin.com/in/omkaryelsange)
