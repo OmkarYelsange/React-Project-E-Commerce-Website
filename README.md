@@ -97,7 +97,6 @@ If you’re using environment variables (e.g. API endpoints or keys), create a .
 ```
 VITE_API_URL=https://api.example.com
 VITE_AUTH_KEY=your_secret_key
-
 ```
 
 ## 📞 Contact
