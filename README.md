@@ -92,7 +92,7 @@ react-e-commerce-website
 
 
 🔐 Environment Variables
-If you’re using environment variables (e.g. API endpoints or keys), create a .env file:
+(e.g. API endpoints or keys), create a .env file:
 
 ```
 VITE_API_URL=https://api.example.com
